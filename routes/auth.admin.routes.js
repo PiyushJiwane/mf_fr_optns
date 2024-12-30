@@ -18,6 +18,6 @@ admin_route.post(`${INITURL}/kotakNeoAccessToken`, kotakNeoAccessToken)
 admin_route.post(`${INITURL}/kotakNeoLogin`, kotakNeoLogin)
 admin_route.get(`${INITURL}/kotakNeoScript`,accessTokenVerify, getScript)
 admin_route.get(`${INITURL}/kotakNeoPositionBook`,accessTokenVerify, getPositionBook)
-admin_route.get(`${INITURL}/kotakNeoPortfolioHolding`,accessTokenVerify, getPortfolioHoldings)
+admin_route.get(`${INITURL}/kotakNeoPortfolioHolding`, accessTokenVerify, getPortfolioHoldings)
 
 module.exports = admin_route
