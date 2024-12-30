@@ -1,6 +1,10 @@
 # Logs
 logs
 *.log
+.env
+package-lock.json
+test.js
+kotak_websocket
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
