@@ -11,6 +11,7 @@ const getUserListPipeline = async () => {
                     createdAt: {
                         $gte: new Date(new Date().setDate(new Date().getDate() - 30)), // Last 30 days
                     },
+                    subscription: true,
                 },
             },
             {
