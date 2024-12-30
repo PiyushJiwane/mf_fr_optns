@@ -7,7 +7,7 @@ const PHONEPAY_SALT_KEY = process.env.PHONEPAY_SALT_KEY
 const PHONEPAY_SALT_INDEX = Number(process.env.PHONEPAY_SALT_INDEX)
 const PHONEPAY_MERCHANT_ID = process.env.PHONEPAY_MERCHANT_ID
 const DEV_URL = process.env.DEV_URL
-const sub_url = "mf_fr_optns/api/v1/admin/transactionDetails/"
+const sub_url = "payment/mf_fr_optns/api/v1/transactionDetails/"
 
 const payload = (userId, amountInPaisa, mobileNumber) => {
     const uuid = uuidv4()
