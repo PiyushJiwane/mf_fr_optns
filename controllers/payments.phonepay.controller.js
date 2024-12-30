@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { payload } = require('../utils/phonepayPayload.util');
 const sha256 = require('sha256');
+const TransactionModel = require('../models/transaction.model');
 
 require("dotenv").config()
 
@@ -53,14 +54,23 @@ const transactionDetails = async (req, res) => {
         },
 
     };
-    axios
-        .request(options)
-        .then(function (response) {
-            res.send(response.data)
+    const transactionDetails = await axios.request(options)
+    if (transactionDetails.data.success) {
+        await TransactionModel.create({
+            userId: "676fae4ac9d69573550acc78",
+            merchandTransactionId: transactionDetails.data.data.merchantTransactionId,
+            transactionId: transactionDetails.data.data.transactionId,
+            amount: transactionDetails.data.data.amount/100,
         })
-        .catch(function (error) {
-            console.error(error);
-        });
+        return res.send({
+            msg: "Payment Success",
+            success: true
+        })
+    }
+    return res.send({
+        msg: "Payment Failed",
+        success: false
+    })
 }
 
 module.exports = { makePayment, transactionDetails }
