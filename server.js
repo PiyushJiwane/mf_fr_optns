@@ -6,6 +6,7 @@ const bodyParser=require("body-parser");
 const cookieParser = require("cookie-parser");
 const payment_route = require("./routes/payments.phonepay.routes");
 const user_route = require("./routes/auth.user.routes");
+const dashboard_route = require("./routes/dashboard.admin.routes");
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ app.use(cookieParser())
 app.use("/admin", admin_route)
 app.use("/user", user_route)
 app.use("/payment", payment_route)
+app.use("/dashboard/admin", dashboard_route)
 
 const startServer = async () => {
     try {
