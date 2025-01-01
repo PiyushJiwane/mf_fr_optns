@@ -10,7 +10,7 @@ const JWT_REFRESHTOKEN_SECRETE_KEY = process.env.JWT_REFRESHTOKEN_SECRETE_KEY
 
 const regenerateToken = async (req, res) => {
     try {
-        const refreshToken = req.cookie.refreshToken
+        const { refreshToken} = req.body
         if (!refreshToken) {
             logger.warn({
                 message: {
