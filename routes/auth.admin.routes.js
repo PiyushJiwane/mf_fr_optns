@@ -8,16 +8,14 @@ const accessTokenVerify = require("../middlewares/accessToken.kotak.middleware")
 require("dotenv").config()
 
 const admin_route = express.Router()
-const INITURL = process.env.INITURL
-console.log('INITURL',INITURL)
 
-admin_route.post(`${INITURL}/login`, adminLoginValidator,login)
+admin_route.post(`/login`, adminLoginValidator,login)
 
 admin_route.use(isAuth)
-admin_route.post(`${INITURL}/kotakNeoAccessToken`, kotakNeoAccessToken)
-admin_route.post(`${INITURL}/kotakNeoLogin`, kotakNeoLogin)
-admin_route.get(`${INITURL}/kotakNeoScript`,accessTokenVerify, getScript)
-admin_route.get(`${INITURL}/kotakNeoPositionBook`,accessTokenVerify, getPositionBook)
-admin_route.get(`${INITURL}/kotakNeoPortfolioHolding`, accessTokenVerify, getPortfolioHoldings)
+admin_route.post(`/kotakNeoAccessToken`, kotakNeoAccessToken)
+admin_route.post(`/kotakNeoLogin`, kotakNeoLogin)
+admin_route.get(`/kotakNeoScript`,accessTokenVerify, getScript)
+admin_route.get(`/kotakNeoPositionBook`,accessTokenVerify, getPositionBook)
+admin_route.get(`/kotakNeoPortfolioHolding`, accessTokenVerify, getPortfolioHoldings)
 
 module.exports = admin_route
