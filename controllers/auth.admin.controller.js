@@ -1,7 +1,7 @@
 const jwtFn = require("../config/jwtConfig")
 const logger = require("../config/logConfig")
 const AdminModel = require("../models/admin.model")
-const RefreshTokenModel = require("../models/token.model")
+const RefreshTokenModel = require("../models/refreshToken.model")
 const cookieOptions = require("../config/config")
 const jwt = require("jsonwebtoken")
 const { default: axios } = require("axios")
