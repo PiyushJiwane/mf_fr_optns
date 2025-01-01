@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
     merchandTransactionId: { type: String, required: true },
     transactionId: { type: String, required: true },
     amount: { type: Number, required: true },
+    subscription: { type: Boolean, required: true,default:true },
 },{
     timestamps:true
 });
