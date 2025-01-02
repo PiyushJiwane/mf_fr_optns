@@ -34,10 +34,10 @@ const login = async (req, res) => {
             refreshToken: jwt_refresh_token
         }, { upsert: true })
 
-        res.cookie("refreshToken", jwt_refresh_token, cookieOptions(10))
-        res.cookie("jwtToken", jwt_token, cookieOptions(1))
-
-        return res.status(200).json({success:true, msg: "User logged in successfully" })
+        return res.status(200)
+            .cookie("refreshToken", jwt_refresh_token, cookieOptions(10))
+            .cookie("jwtToken", jwt_token, cookieOptions(1))
+            .json({ success: true, msg: "User logged in successfully" })
     }
     return res.status(400).json({success:false, msg: "Invalid password" })
 }
