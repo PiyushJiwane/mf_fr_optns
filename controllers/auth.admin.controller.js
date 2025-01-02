@@ -133,20 +133,18 @@ const login = async (req, res) => {
 
         // await kotakNeo()
 
-        res.cookie("refreshToken", jwt_refresh_token, cookieOptions(10))
-        // // for testing and dev env
-        // res.cookie("jwtToken", jwt_token, cookieOptions(1, "access"))
-
-        // // for production env
-        res.cookie("jwtToken", jwt_token, cookieOptions(1))
-
         logger.info({
             message: {
                 method: "login",
                 msg: "login success"
             }
         })
-        res.status(200).json({ data: "login fn" })
+
+        return res.status(200)
+            .cookie("refreshToken", jwt_refresh_token, cookieOptions(10))
+            .cookie("jwtToken", jwt_token, cookieOptions(1))
+            .json({ success: true, msg: "Admin logged in successfully" })
+        
     } catch (error) {
         logger.error({
             message: {
